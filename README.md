@@ -52,4 +52,19 @@ Type specifies the data type of each component in the array (for example GL_BYTE
 Normalized specifies whether fixed-point data values should be normalized (GL_TRUE) or converted directly as fixed-point values (GL_FALSE) when they are accessed.
 Stride specifies the byte offset between consecutive generic vertex attributes. If 0, the generic vertex attributes are understood to be tightly packed in the array. The initial value is 0.
 Pointer specifies a offset of the first component of the first generic vertex attribute in the array in the data store of the buffer currently bound to the GL_ARRAY_BUFFER target. The initial value is 0.
-### 
+### void glDrawArrays(GLenum mode, GLint first, GLsizei count);
+GLenum mode specifies what kind of primitives to render (for example GL_POINTS, GL_LINE_STRIP, GL_TRIANGLES)
+GLint first specifies the starting index in the enabled arrays.
+GLsizei count specifies the number of indices to be rendered.
+### glDisableVertexAttribArray(0);
+Сreate an array of 2d vertices that will be used to draw shapes.
+### glutMainLoop();
+Calling main rendering loop.
+____
+## Lesson 3. Drawing a triangle
+### glGenBuffers(1, &VBO);
+The glGen* functions are needed to generate objects of variable types. The first parameter specifies the number of objects we want to create, and the second is a reference to an array of type GLuints to store the pointer to which the data will be stored. 
+### glBindBuffer(GL_ARRAY_BUFFER, VBO);
+Specify that buffer will be storing an array of vertices
+### glBufferData(GL_ARRAY_BUFFER, sizeof(Vertices), Vertices, GL_STATIC_DRAW);
+Creates and initializes a buffer object's data store.
